@@ -1,0 +1,735 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ACT Consulting &middot; Enterprise Content Management (OpenText)</title>
+  <meta name="description"
+    content="ACT Consulting specializes in Enterprise Content Management (ECM) with deep expertise in OpenText technologies. Serving Oil & Gas, Government, Pharma, Aerospace, Retail, and Automotive." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --blue-700: #0B5BCB;
+      --blue-800: #0848A1;
+      --blue-50: #F2F6FF;
+      --violet-500: #7F5AF0;
+      --violet-600: #6246EA;
+      --cyan-400: #21D4FD;
+      --cyan-500: #1E9FF2;
+      --midnight-900: #050B1A;
+      --midnight-800: #0C1635;
+      --midnight-700: #091124;
+      --ink-100: #E2E8F0;
+      --ink-200: #CBD5F5;
+      --ink-300: #94A3B8;
+      --ink-400: #556086;
+      --ink-500: #3B4258;
+      --ink-900: #0F172A;
+      --white: #FFFFFF;
+      --radius: 16px;
+      --shadow: 0 18px 45px rgba(3, 10, 32, 0.38);
+      --neon-500: #5DF2FF;
+      --neon-400: #60A5FA;
+      --neon-300: #7C8FFF;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      color: var(--ink-100);
+      background: radial-gradient(circle at 20% 20%, rgba(127, 90, 240, 0.18), transparent 55%),
+        linear-gradient(160deg, var(--midnight-900), var(--midnight-800) 55%, #031023 100%);
+      min-height: 100vh;
+      font-size: 16px;
+      letter-spacing: 0.01em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1100px, 92vw);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: saturate(180%) blur(18px);
+      background: rgba(11, 17, 32, 0.82);
+      border-bottom: 1px solid rgba(79, 70, 229, 0.34);
+      box-shadow: 0 12px 32px rgba(4, 10, 30, 0.45);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--white);
+      letter-spacing: 0.06em;
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+    }
+
+    .brand span {
+      display: block;
+    }
+
+    .brand-name {
+      font-family: 'Space Grotesk', 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: linear-gradient(210deg, #4ecdf0 0%, #3B82F6 100%);
+      display: inline-block;
+      line-height: 64px;
+      /* perfect vertical centering */
+      text-align: center;
+      font-family: 'Space Grotesk', 'Poppins', sans-serif;
+      font-weight: 800;
+      /* make ACT slightly bolder for legibility */
+      font-size: 26px;
+      /* balanced with CONSULTING text */
+      letter-spacing: 0.1em;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      /* subtle depth */
+      box-shadow: 0 8px 22px rgba(59, 130, 246, 0.45);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: default;
+      /* avoids text cursor */
+    }
+
+    .logo:hover {
+      transform: translateY(-2px) scale(1.03);
+      /* gentle hover lift */
+      box-shadow: 0 12px 28px rgba(59, 130, 246, 0.55);
+    }
+
+
+
+
+
+
+    .menu {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink-100);
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .menu a {
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .menu a::after {
+      content: '';
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cyan-400), var(--violet-500));
+      opacity: 0;
+      transform: scaleX(0.2);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .menu a:hover::after,
+    .menu a:focus-visible::after {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    .burger {
+      display: none;
+      border: none;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--ink-100);
+    }
+
+    .burger:focus-visible {
+      outline: 2px solid var(--cyan-400);
+      outline-offset: 3px;
+    }
+
+    .mobile {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      padding-bottom: 14px;
+    }
+
+    .mobile a {
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: rgba(20, 31, 60, 0.9);
+      border: 1px solid rgba(79, 70, 229, 0.25);
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .hero {
+      padding: 120px 0 80px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .eyebrow {
+      font-family: 'Space Grotesk', 'Poppins', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.34em;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: var(--white);
+      text-shadow: 0 0 20px rgba(93, 242, 255, 0.5);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: 'Space Grotesk', 'Poppins', sans-serif;
+      font-size: clamp(34px, 4.4vw, 58px);
+      font-weight: 600;
+      letter-spacing: 0.006em;
+      color: var(--white);
+      text-shadow: 0 8px 26px rgba(93, 242, 255, 0.22);
+    }
+
+    h2 {
+      font-family: 'Space Grotesk', 'Poppins', sans-serif;
+      font-size: clamp(34px, 4.2vw, 48px);
+      margin: 0 0 18px;
+      color: var(--white);
+      text-align: center;
+      letter-spacing: 0.02em;
+      text-shadow: 0 10px 28px rgba(124, 143, 255, 0.18);
+    }
+
+    h3 {
+      font-family: 'Space Grotesk', 'Poppins', sans-serif;
+      font-size: 22px;
+      margin: 0 0 14px;
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: var(--ink-300);
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+    }
+
+    .sub {
+      font-size: 17px;
+      max-width: 520px;
+      color: var(--ink-200);
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 26px;
+      border-radius: 999px;
+      font-family: 'Space Grotesk', 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      background: linear-gradient(120deg, var(--neon-500), var(--violet-500));
+      border: 1px solid rgba(93, 242, 255, 0.35);
+      box-shadow: 0 20px 40px rgba(93, 242, 255, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 26px 48px rgba(93, 242, 255, 0.4);
+      border-color: rgba(93, 242, 255, 0.55);
+    }
+
+    .ghost-btn {
+      background: transparent;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--ink-100);
+      box-shadow: none;
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      letter-spacing: 0.06em;
+    }
+
+    .ghost-btn:hover,
+    .ghost-btn:focus-visible {
+      border-color: rgba(93, 242, 255, 0.55);
+      color: var(--white);
+      box-shadow: 0 18px 36px rgba(93, 242, 255, 0.25);
+    }
+
+    .hero-card {
+      background: rgba(10, 18, 38, 0.82);
+      border-radius: var(--radius);
+      padding: 30px;
+      border: 1px solid rgba(93, 242, 255, 0.22);
+      box-shadow: 0 26px 55px rgba(8, 26, 60, 0.6);
+      backdrop-filter: blur(18px);
+    }
+
+    .checklist {
+      list-style: disc;
+      padding-left: 20px;
+      margin: 0;
+      color: var(--ink-200);
+      letter-spacing: 0.01em;
+    }
+
+    .checklist li {
+      margin: 10px 0;
+      padding-left: 4px;
+    }
+
+    .muted {
+      color: var(--ink-300);
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 32px;
+      letter-spacing: 0.01em;
+    }
+
+    .grid3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(9, 17, 36, 0.78);
+      border-radius: var(--radius);
+      padding: 26px;
+      border: 1px solid rgba(79, 70, 229, 0.3);
+      box-shadow: 0 24px 52px rgba(3, 10, 32, 0.46);
+      backdrop-filter: blur(16px);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(33, 212, 253, 0.45);
+      box-shadow: 0 28px 55px rgba(2, 12, 32, 0.6);
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .glow-section {
+      background: linear-gradient(180deg, rgba(27, 35, 68, 0.72), rgba(6, 12, 32, 0.9));
+    }
+
+    #industries .card {
+      text-align: center;
+    }
+
+    .icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .card:hover .icon {
+      transform: scale(1.15);
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.45));
+    }
+
+    .oilgas .icon {
+      color: #33B5E5;
+    }
+
+    .govt .icon {
+      color: #3DDC97;
+    }
+
+    .pharma .icon {
+      color: #F4B400;
+    }
+
+    .aero .icon {
+      color: #9C27B0;
+    }
+
+    .retail .icon {
+      color: #FF7043;
+    }
+
+    .auto .icon {
+      color: #42A5F5;
+    }
+
+    .panel {
+      background: rgba(9, 17, 36, 0.82);
+      border-radius: var(--radius);
+      padding: 22px;
+      border: 1px solid rgba(79, 70, 229, 0.32);
+      margin-top: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    #contact aside.card {
+      margin-top: 72px;
+    }
+
+    form {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--ink-100);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(7, 13, 32, 0.85);
+      color: var(--ink-100);
+      font-family: inherit;
+      font-size: 15px;
+    }
+
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid rgba(33, 212, 253, 0.6);
+      outline-offset: 2px;
+    }
+
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid rgba(79, 70, 229, 0.25);
+      background: linear-gradient(180deg, rgba(5, 10, 24, 0.95), rgba(3, 8, 20, 0.92));
+    }
+
+    .foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      color: var(--ink-300);
+    }
+
+    @media (max-width: 880px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .menu {
+        display: none;
+      }
+
+      .burger {
+        display: inline-flex;
+      }
+
+      .mobile {
+        display: none;
+      }
+    }
+
+    @media (max-width: 580px) {
+      header {
+        padding-inline: 0;
+      }
+
+      .hero {
+        padding: 90px 0 70px;
+      }
+
+      .hero-card {
+        padding: 22px;
+      }
+
+      .brand {
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <span class="logo" aria-hidden="true">ACT</span>
+        <span class="brand-name">Consulting</span>
+      </a>
+      <nav class="menu" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#industries">Industries</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+      <button class="burger" aria-label="Toggle menu" onclick="toggleMobile()">&#9776;</button>
+    </div>
+    <div id="mobileNav" class="mobile container">
+      <a href="#services" onclick="toggleMobile()">Services</a>
+      <a href="#industries" onclick="toggleMobile()">Industries</a>
+      <a href="#about" onclick="toggleMobile()">About</a>
+      <a href="#contact" onclick="toggleMobile()">Contact</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Enterprise Content Management (OpenText)</div>
+          <h1>We help enterprises organize, secure, and scale their content.</h1>
+          <p class="sub">ACT Consulting brings 20 years of hands-on OpenText expertise, designing, migrating, and
+            supporting ECM platforms for regulated industries.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#contact">Get in touch</a>
+            <a class="btn ghost-btn" href="#services">Our services</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3>At a glance</h3>
+          <ul class="checklist">
+            <li>OpenText Content Server, OTDS, Archive Center, Extended ECM</li>
+            <li>ECM migrations, upgrades, integrations, and support</li>
+            <li>Governance, security, and performance tuning</li>
+            <li>On-prem, hybrid, and cloud deployments</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <h2>Services</h2>
+        <p class="muted">End-to-end Enterprise Content Management solutions tailored to your business.</p>
+        <div class="grid3">
+          <div class="card">
+            <h3>ECM Strategy &amp; Architecture</h3>
+            <p>Blueprints for scalable, secure content platforms using OpenText best practices.</p>
+            <ul class="checklist">
+              <li>Current state assessment</li>
+              <li>Target architecture &amp; roadmap</li>
+              <li>Security &amp; governance models</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Migrations &amp; Upgrades</h3>
+            <p>Reduce risk and downtime with proven frameworks for complex moves.</p>
+            <ul class="checklist">
+              <li>Version upgrades</li>
+              <li>On-prem to cloud</li>
+              <li>Data quality &amp; validation</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Integrations &amp; Automation</h3>
+            <p>Connect ECM with line-of-business apps to streamline work.</p>
+            <ul class="checklist">
+              <li>SAP, ERP, CRM, email &amp; file shares</li>
+              <li>APIs, webhooks, and workflows</li>
+              <li>Records and retention automation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="industries" class="glow-section">
+      <div class="container">
+        <h2>Industries</h2>
+        <p class="muted">We support organizations that demand compliance, security, and scale.</p>
+        <div class="grid3">
+          <div class="card oilgas">
+            <div class="icon"><i class="fa-solid fa-oil-well" aria-hidden="true"></i></div>
+            <h3>Oil &amp; Gas</h3>
+            <p>Document control, asset data, and compliance at scale.</p>
+          </div>
+          <div class="card govt">
+            <div class="icon"><i class="fa-solid fa-landmark" aria-hidden="true"></i></div>
+            <h3>Government</h3>
+            <p>US &amp; international public sector records and FOIA readiness.</p>
+          </div>
+          <div class="card pharma">
+            <div class="icon"><i class="fa-solid fa-pills" aria-hidden="true"></i></div>
+            <h3>Pharmaceutical</h3>
+            <p>GxP documentation, validation, and audit trails.</p>
+          </div>
+          <div class="card aero">
+            <div class="icon"><i class="fa-solid fa-plane-up" aria-hidden="true"></i></div>
+            <h3>Aerospace</h3>
+            <p>Engineering content, supplier collaboration, and traceability.</p>
+          </div>
+          <div class="card retail">
+            <div class="icon"><i class="fa-solid fa-store" aria-hidden="true"></i></div>
+            <h3>Retail</h3>
+            <p>Policy docs, store operations, and marketing asset governance.</p>
+          </div>
+          <div class="card auto">
+            <div class="icon"><i class="fa-solid fa-car-side" aria-hidden="true"></i></div>
+            <h3>Automotive</h3>
+            <p>Product lifecycle content and supplier portals.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2>About ACT Consulting</h2>
+        <p class="muted">We are specialists in Enterprise Content Management with 20 years of experience in OpenText
+          technologies. Our team combines deep platform knowledge with practical delivery experience across regulated
+          industries.</p>
+        <div class="panel" role="note" aria-label="Company details">
+          <strong>Address:</strong> 11989 Grey Oaks Park Rd, Glen Allen, VA 23059<br />
+          <strong>Phone:</strong> <a href="tel:+18045271590">804&nbsp;527&nbsp;1590</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="glow-section">
+      <div class="container contact-wrap">
+        <div>
+          <h2>Contact Us</h2>
+          <p class="muted" style="margin: 0;">Tell us about your ECM goals. We'll get back within 1-2 business days.</p>
+          <form action="mailto:shiva@actllc.us" method="POST" enctype="text/plain">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" placeholder="Your full name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="name@company.com" required />
+            </div>
+            <div>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="How can we help?"></textarea>
+            </div>
+            <button class="btn" type="submit">Send message</button>
+          </form>
+        </div>
+        <aside class="card">
+          <h3 style="margin-top:0;">Direct</h3>
+          <p><strong>Phone:</strong> <a href="tel:+18045271590">804&nbsp;527&nbsp;1590</a><br />
+            <strong>Address:</strong> 11989 Grey Oaks Park Rd, Glen Allen, VA 23059
+          </p>
+          <p class="muted" style="text-align:left;">Prefer email? Reach us at <a
+              href="mailto:shiva@actllc.us">shiva@actllc.us</a> for a quick response.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">ACT</span>
+        <span class="brand-name">Consulting</span>
+      </div>
+      <small>&copy; <span id="year"></span> ACT Consulting. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script>
+    const mobile = document.getElementById('mobileNav');
+    function toggleMobile() {
+      if (!mobile) return;
+      mobile.style.display = mobile.style.display === 'block' ? 'none' : 'block';
+    }
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+
+</html>
